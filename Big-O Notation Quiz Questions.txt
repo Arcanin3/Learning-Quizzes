@@ -1,0 +1,180 @@
+Big-O Notation Quiz Questions:
+
+What are the runtimes of these sets of code?
+
+1.
+
+def find_max(list):
+  max = list[0]
+  for value in list:
+    if value > max:
+      max = value
+  return max
+
+Answer - Linear 0(N)
+
+This function visits each element in the list one time, as the input increases, the amount of work will also increase.
+
+2.
+
+def mystery_function(mystery_list, target):
+  start_idx = 0
+  end_idx = len(mystery_list) - 1
+  
+  while start_idx <= end_idx:
+    mid = (start_idx + end_idx) // 2
+    mid_value = mystery_list[mid]
+    
+    if mid_value == target:
+      return mid
+    
+    if mid_value > target:
+      end_idx = mid - 1
+    else:
+      start_idx = mid + 1
+      
+  raise ValueError("{0} is not in list".format(target))
+
+hint: Given a list of a certain length, how many iterations will be performed in the worst case?
+
+Answer - Logarithmic 0(logN)
+
+Each iteration will effectively reduce the input size by half, which makes this a particularly efficient way to find an element in a sorted list.
+
+3.
+Which function has the least efficient Big O runtime?
+
+def func_one(list):
+  for element in list:
+    print(element)
+    
+  for element2 in list:
+    print(element2)
+    
+  for element3 in list:
+    print(element3)
+    
+def func_two(list):
+  for element in list:
+    continue
+
+def func_three(list):
+  return list[0] + list[1]
+
+def func_four(list):
+  for element in list:
+    print(list[0 : len(list)])
+
+
+Answer: func_four()
+
+This is trickier, but within the loop iteration we are making a copy of the list, which is a linear operation. For each iteration, we’re performing a linear iteration, which creates a quadratic runtime.
+
+4.
+
+Which function has the most efficient Big O runtime?
+
+def func_one(list):
+  for element in list:
+    print(element)
+    if element % 2 == 0:
+      print("EVEN STEVEN!")
+
+def func_two(list):
+  for element in list:
+    for element2 in list:
+      print(element, element2)
+
+def func_three(list):
+  print(list)
+  for i in range(0, 100000):
+    print(i)
+   
+def func_four(list):
+  for element in list:
+    print(element)
+    
+  for element2 in list:
+    print(element2 * element2)
+
+Answer: func_three()
+
+func_three() has a Big O runtime of O(1). It is constant because the number of steps in the function do not increase with the input.
+
+
+5.
+
+Which function has the Big O runtime of O(N + M)?
+
+def first_func(list1):
+  for element in list1:
+    print(element)
+
+def second_func(list1, list2):
+  for element in list1:
+    print(element)
+    for element2 in list2:
+      print(element2)
+
+def third_func(list1, list2):
+  for element in list1:
+    print(element)
+  
+  for element2 in list2:
+    print(element2)
+
+def fourth_func(list1):
+  for element in list1:
+    for element2 in list1:
+      print(element + element2)
+
+Answer: third_func()
+
+This is a quadratic runtime and there’s only one input list for a runtime of O(N^2).
+
+
+6.
+Suppose we want to retrieve data stored under the string "secret", which of the data structures would give us the most efficient retrieval?
+
+# Option 1: Tuple
+option_1 = (("secret", "I like dogs"), ("public", "Cats are cool"))
+# Option 2: Dictionary
+option_2 = {"secret": "I like dogs", "public": "Cats are cool"}
+# Option 3: List
+option_3 = [["secret", "I like dogs"], ["public", "Cats are cool"]]
+# Option 4: Linked List
+option_4 = LinkedList("Secret: I like dogs")
+option_4.insert_beginning("Public: Cats are cool")
+
+
+Answer: option_2
+
+With a linked list, we would need to loop through calling .get_next_node() and check each value to see if it matched with our string. This would give us O(N) or linear retrieval.
+
+Since we have a String, we can use it as a key in the dictionary for O(1) retrieval.
+
+
+7.
+What is the Big O runtime of the following code?
+
+def print_even_pairs(list):
+  for element1 in list:
+    for element2 in list:
+      if (element1 + element2) % 2 == 0:
+        print(element1, element2)
+
+Answer: Quadratic O(N^2)
+
+This code will loop through each element in the list for each element in the list. If the loops were not nested then this would be a linear runtime.
+
+
+8.
+What is the runtime of the following code?
+
+def make_sum(num1, num2):
+  return num1 + num2
+
+Answer - Constant: O(1)
+This is a mathematical operation, the steps the function performs will not increase with larger inputs.
+
+
