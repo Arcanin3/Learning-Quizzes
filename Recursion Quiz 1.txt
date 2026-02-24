@@ -1,0 +1,55 @@
+Recursion Quiz 1
+
+1. 
+What is the importance of the recursive step?
+
+Answer: It recursively calls the function with an argument which will reach the base case.
+The recursive step will be the equivalent of an infinite loop and cause a stack overflow if it doesn’t move closer to a base case.
+
+2.
+What are the two main sections of a recursive function?
+
+Answer: The base case and the recursive step.
+ - The base case has no recursive call and the recursive step has a recursive call that moves closer to the base case.
+
+3.
+What is the call stack?
+
+Answer: A data structure typically abstracted away from us which stores function calls in programs.
+ - The call stack contains each recursive call with the function’s execution context.
+
+4.
+Recursion is typically more efficient than iteration.
+
+Answer: False
+
+5.
+What is an execution context and how does it relate to recursion?
+
+Answer: An execution context contains the variables within each recursive function call.
+
+6.
+What is a description of a recursive approach?
+
+Answer: Computing a factorial number, multiplying the number by the factorial number and subtracting one.
+
+7.
+A function will not recurse if the ________ is reached.
+
+Answer: Base Case
+
+8.
+When analyzing the Big O runtime of recursive functions, we count the ____.
+
+Answer: Relation of input to function calls.
+
+9.
+What is the purpose of the base case in a recursive function?
+
+Answer: In the base  case, there is no recursive function call
+
+10.
+A recursive function which has no base case, or a recursive step that does not lead to the base case, will cause what?
+
+Answer: A stack overflow.
+
